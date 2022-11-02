@@ -59,7 +59,7 @@
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toEndOf="@+id/tv_left_number"
         app:layout_constraintTop_toTopOf="@+id/tv_left_number"
-        tools:text="0" />
+        android:text="?" />
 
     <TextView
         android:id="@+id/textView"

@@ -6,19 +6,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.composition_numbers.R
+import com.example.composition_numbers.databinding.FragmentGameBinding
 import com.example.composition_numbers.databinding.FragmentWelcomeBinding
 
 
 class WelcomeFragment : Fragment() {
 
-    private lateinit var binding: FragmentWelcomeBinding
+
+    private var _binding: FragmentWelcomeBinding?=null
+    private val binding: FragmentWelcomeBinding
+        get() = _binding ?: throw RuntimeException("FragmentChooseLevelBinding == null")
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        binding = FragmentWelcomeBinding.inflate(inflater, container, false)
+        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -40,4 +45,8 @@ class WelcomeFragment : Fragment() {
 
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }
